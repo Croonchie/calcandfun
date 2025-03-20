@@ -1,0 +1,45 @@
+/* Apply a gradient background to all pages */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #b3ecb5, #597d9b);
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+
+}
+
+#about {
+    background: linear-gradient(to right, #ee9dac, #9ac0df);
+}
+
+#calc {
+    background: linear-gradient(to right, #c1e6b8, #bfc964);
+}
+
+#fun {
+    background: linear-gradient(to right, #e4f77c, #723cf1);
+}
+#contact {
+    background: linear-gradient(to right, #676669, #ffffff);
+}
+
+/* Main Section Styling */
+main {
+    padding: 50px 0;
+}
+
+/* Footer Styling */
+footer {
+    background: rgba(219, 59, 59, 0.9);
+    color: white;
+    padding: 15px;
+    margin-top: 550px;
+    font-size: 15px;
+    text-align: center;
+}
