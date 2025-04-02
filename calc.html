@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator Zone - Calc and Fun</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body id="calc">
@@ -13,21 +14,35 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Calc and Fun</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="calc.html">Calc Zone</a></li>
-                    <li class="nav-item"><a class="nav-link" href="fun.html">Fun Zone</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="assets/logo.png" alt="Logo" class="logo-img me-2">
+            Calc and Fun
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="calc.html">Calc Zone</a></li>
+              <li class="nav-item"><a class="nav-link" href="fun.html">Fun Zone</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
         </div>
-    </nav>
+      </nav>
+      
+      
+
+    <!-- Video Section -->
+    <section class="vid-index">
+        <video autoplay muted loop playsinline>
+          <source src="assets/vid.index.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
 
     <!-- Page Content -->
     <main class="container my-5 text-center">
@@ -60,7 +75,7 @@
 
         <!-- Calculator Output Area -->
         <div id="calculator-area">
-            <!-- BMI and BMR already included above -->
+      
 
             <!-- BMI Calculator -->
 <div id="bmi-calculator" class="d-none">
@@ -268,9 +283,18 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Calc and Fun. All Rights Reserved.</p>
-    </footer>
+    <footer class="site-footer">
+        <div class="container">
+          <p>&copy; 2025 Calc and Fun. All Rights Reserved.</p>
+          
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

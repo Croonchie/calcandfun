@@ -1,18 +1,73 @@
 /* Apply a gradient background to all pages */
-body {
+html, body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to right, #b3ecb5, #597d9b);
+    height: 100%;
     color: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navbar Styling */
 .navbar {
-    background: rgba(0, 0, 0, 0.8);
-
+    background-color: #406be2 !important;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #96bbdf !important;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 8px;
+    padding: 5px 0;
+    background: none;
+    border-radius: 0;
+    transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #b30000 !important;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    margin-right: 8px;
+  }
+
+
+.vid-index {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .vid-index video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
 
 #about {
     background: linear-gradient(to right, #ee9dac, #9ac0df);
@@ -26,20 +81,101 @@ body {
     background: linear-gradient(to right, #e4f77c, #723cf1);
 }
 #contact {
-    background: linear-gradient(to right, #676669, #ffffff);
+    background: linear-gradient(to right, #121313, #6c83eb);
 }
 
 /* Main Section Styling */
 main {
+    flex: 1;
     padding: 50px 0;
 }
 
-/* Footer Styling */
-footer {
-    background: rgba(219, 59, 59, 0.9);
-    color: white;
-    padding: 15px;
-    margin-top: 550px;
-    font-size: 15px;
-    text-align: center;
+main.container {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
 }
+
+
+/* Contact Page Enhancements */
+.contact-section {
+    color: white;
+    padding: 40px 0;
+  }
+  
+  .contact-info h4 {
+    color: #bdec97;
+  }
+  
+  .contact-form {
+    background-color: #02015c;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    background-color: #f1e9ed;
+    border: none;
+    color: #09b852;
+    margin-bottom: 15px;
+  }
+  
+  .send-btn {
+    background-color: #28a745;       /* Bright green */
+    color: white !important;         /* Make sure text is visible */
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    z-index: 10;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    transition: background 0.3s ease;
+  }
+  
+  .send-btn:hover {
+    background-color: #740912;
+  }
+  
+  
+  .map-box {
+    background-color: #a6cbd5;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 1.5rem;
+    color: red;
+    font-weight: bold;
+  }
+  
+
+
+
+
+/* Footer Styling */
+.site-footer {
+    background-color: #200505;
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .site-footer .social-icons {
+    margin-top: 10px;
+  }
+  
+  .site-footer .social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+  }
+  
+  .site-footer .social-icons a:hover {
+    color: #c8db1b; /* yellow-ish hover */
+  }
