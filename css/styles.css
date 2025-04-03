@@ -84,6 +84,26 @@ html, body {
     background: linear-gradient(to right, #121313, #6c83eb);
 }
 
+/*headline styling*/
+.feature-highlight {
+    background: linear-gradient(135deg, #007bff, #ff69b4);
+    color: white;
+    border-radius: 10px;
+    padding: 40px 20px;
+    margin-top: 30px;
+}
+
+.feature-highlight h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-highlight p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+
 /* Main Section Styling */
 main {
     flex: 1;
