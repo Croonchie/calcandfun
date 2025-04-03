@@ -155,7 +155,7 @@ main.container {
 
 /* Developer cards*/
 .developer-team {
-    background-color: #f8f9fa; /* Light gray background */
+    background: linear-gradient(to right, #ee9dac, #9ac0df);
     padding: 40px 20px;
     border-radius: 10px;
 }
