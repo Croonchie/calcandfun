@@ -186,12 +186,6 @@ main.container {
 
 
 /* Developer cards*/
-.developer-team {
-    background: linear-gradient(to right, #ee9dac, #9ac0df)!important;
-    padding: 40px 20px;
-    border-radius: 10px;
-}
-
 .developer-team h3 {
     font-size: 2rem;
     font-weight: bold;
