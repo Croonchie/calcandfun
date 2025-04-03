@@ -177,6 +177,7 @@ main.container {
 
 .developer-team .card-body {
     background: none !important;
+    padding: 0 !important;
 }
 
 .developer-team .card:hover {
