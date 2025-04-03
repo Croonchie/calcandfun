@@ -154,7 +154,7 @@ main.container {
 
 
 /* Developer cards*/
- .developer-team {
+.developer-team {
     background-color: #f8f9fa; /* Light gray background */
     padding: 40px 20px;
     border-radius: 10px;
@@ -166,7 +166,6 @@ main.container {
     margin-bottom: 20px;
 }
 
-
 .developer-team .card {
     border: none;
     border-radius: 15px;
@@ -174,15 +173,14 @@ main.container {
     color: white;
     background: linear-gradient(to right, #007bff, #ff69b4); /* Blue to Pink gradient */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
+}
 
 .developer-team .card:hover {
     transform: scale(1.05);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .developer-team .card h5 {
-    color: #007bff; /* Bootstrap primary color */
     font-weight: bold;
 }
 
