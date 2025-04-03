@@ -86,7 +86,7 @@ html, body {
 
 /*headline styling*/
 .feature-highlight {
-    background: linear-gradient(135deg, #007bff, #ff69b4);
+    background: linear-gradient(to right, #ee9dac, #9ac0df);
     color: white;
     border-radius: 10px;
     padding: 40px 20px;
@@ -113,6 +113,26 @@ main {
 main.container {
     margin-top: 10px !important;
     padding-top: 10px !important;
+}
+
+.about-section {
+    background: linear-gradient(to right, #ee9dac, #9ac0df);
+    color: white;
+    border-radius: 10px;
+    padding: 40px 20px;
+    margin-top: 30px;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 
