@@ -170,7 +170,7 @@ main.container {
     border: none;
     border-radius: 15px;
     text-align: center;
-    background: linear-gradient(to right, #ee9dac, #bfc964); /* Blue to Pink gradient */
+    background: linear-gradient(to right, #ee9dac, #bfc964)!important; /* Blue to Pink gradient */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
