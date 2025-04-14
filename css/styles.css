@@ -128,11 +128,11 @@ main.container {
 }
 
 /*TICTACTOE*/
-.fun1 h3 {
+.game h3 {
   text-align: center;
 }
 
-#board {
+#Tictactoe {
   margin-left: auto;
   margin-right: auto;
   width: 375px;
@@ -201,8 +201,8 @@ main.container {
   }
   
   .send-btn {
-    background-color: #28a745;       /* Bright green */
-    color: white !important;         /* Make sure text is visible */
+    background-color: #28a745;      
+    color: white !important;         
     border: none;
     padding: 10px 30px;
     border-radius: 20px;
