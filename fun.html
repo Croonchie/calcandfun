@@ -44,12 +44,27 @@
     <!-- Page Content -->
     <main class="container text-center mt-5">
       <h2>Welcome to Fun Zone</h2>
-      <p>It's Under Construction 🚧</p>
-      <!--Game Content-->
-      <div class="fun1" id="games">
-        <h3>Tic Tac Toe</h3>
+      <!--Catergory Button-->
+      <div id="c-buttons" class="mb-4">
+        <button class="btn btn-outline-primary btn-lg m-2" onclick="GameButton('Game')">Game</button>
+        <button class="btn btn-outline-success btn-lg m-2" onclick="QuizButton('Quiz')">Quiz</button>
       </div>
-      <div id="board">
+      <!--Game Button-->
+      <div id="Game-section" class="d-none mb-4 game">
+        <h3>Games</h3>
+        <button class="btn btn-secondary m-2" onclick="showGame('Tictactoe')">Tic Tac Toe</button>
+        <button class="btn btn-secondary m-2" onclick="showGame('Mermory')">Mermory Game</button>
+      </div>
+
+      <!-- Quiz Buttons -->
+      <div id="Quiz-section" class="d-none mb-4">
+        <h3>Quiz</h3>
+        <p>It's Under Construction 🚧</p>
+    </div>
+
+      <!--Tic Tac Toe-->
+      <div id="Tictactoe">
+        <h4>Tic Tac Toe</h4>
         <div class="square" id="square0"></div>
         <div class="square" id="square1"></div>
         <div class="square" id="square2"></div>
@@ -59,9 +74,15 @@
         <div class="square" id="square6"></div>
         <div class="square" id="square7"></div>
         <div class="square" id="square8"></div>
+        <div id="endGame">
+          <input type="button" value="Restart" id="restartButton" onclick="restartButton()"/>
+        </div>
       </div>  
-      <div id="endGame">
-        <input type="button" value="Restart" id="restartButton" onclick="restartButton()"/>
+
+      <!--Mermory-->
+      <div id="Mermory">
+        <h4>Mermory Game</h4>
+        <p>It's Under Construction 🚧</p>
       </div>
     </main>
 
@@ -82,6 +103,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="fun.js"></script> 
 
 </body>
 </html>
