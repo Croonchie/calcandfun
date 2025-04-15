@@ -55,19 +55,21 @@ html, body {
     margin-right: 8px;
   }
 
+
   .vid-index {
     position: relative;
     z-index: 0;
-    overflow: hidden;
+
   }
-  
   .vid-index video {
     width: 100%;
     height: auto;
+
     object-fit: cover;
     display: block;
     position: static; 
     z-index: -1; 
+
   }
   
 
@@ -109,7 +111,6 @@ main.container {
     padding-top: 10px !important;
 }
 
-
 .about-section {
     background: linear-gradient(to right, #ee9dac, #9ac0df);
     color: white;
@@ -129,6 +130,7 @@ main.container {
     max-width: 700px;
     margin: 0 auto;
 }
+
 /* ========================================================= */
 /* game section */
 /* game section */
@@ -418,5 +420,5 @@ button:hover {
   }
   
   .site-footer .social-icons a:hover {
-    color: #c8db1b; /* yellow-ish hover */
+    color: #c8db1b;
   }
