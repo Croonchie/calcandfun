@@ -129,83 +129,180 @@ main.container {
     max-width: 700px;
     margin: 0 auto;
 }
-
+/* ========================================================= */
 /* game section */
-.game h3 {
-  text-align: center;
+/* game section */
+/* ====================
+   FUN ZONE MAIN
+==================== */
+/* FUN ZONE PAGE STYLES */
+
+/* Headings */
+/* Global Layout Styles */
+html, body {
   font-family: 'Arial', sans-serif;
-  color: #333;
+  background: linear-gradient(to right, #b3ecb5, #597d9b);
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-align: center;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #406be2 !important;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: #96bbdf !important;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #b30000 !important;
+  font-weight: bolder;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  margin-right: 8px;
+}
+
+/* Footer Styling */
+.site-footer {
+  background-color: #200505;
+  color: white;
+  padding: 25px 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.site-footer .social-icons {
+  margin-top: 10px;
+}
+
+.site-footer .social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.site-footer .social-icons a:hover {
+  color: #c8db1b;
+}
+
+/* Video Section */
+.vid-index {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.vid-index video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  position: static;
+  z-index: -1;
+}
+
+/* Fun Page */
+main h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#gameOptions,
+#quizOptions {
+  margin-bottom: 30px;
+}
+
+button {
+  transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
 }
 
 
+/* Tic Tac Toe Styling */
 #Tictactoe {
-  margin-left: auto;
-  margin-right: auto;
-  width: 375px;
-  height: 375px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
-  border: 2px solid #007BFF; 
-  border-radius: 10px; 
-  padding: 10px;
-  background-color: #FFFFFF;
+  margin: 30px auto;
 }
 
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 10px;
+  justify-content: center;
+  margin: auto;
+}
 
 .square {
-  width: 120px;
-  height: 120px;
-  border: 1px solid #D3D3D3;
-  background-color: #F5F5F5;
-  font-size: 40px;
+  width: 80px;
+  height: 80px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #f8f9fa;
+  color: #333;
+  border: 2px solid #007bff;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s;
-  cursor: pointer; 
 }
-
 
 .square:hover {
-  background-color: #FFFFE0;
+  background-color: #dfefff;
 }
-
 
 #restartButton {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 40px;
-  width: 150px;
-  background-color: #007BFF; 
-  border: none; 
-  border-radius: 20px; 
-  font-size: 18px;
-  color: #FFFFFF; 
-  cursor: pointer; 
-  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 15px;
 }
 
-
-#restartButton:hover {
-  background-color: #0056b3; 
-  transform: scale(1.05); 
+/* Card Styling for Placeholders */
+.card {
+  margin: 20px auto;
+  max-width: 500px;
 }
 
-h2 {
-  text-align: center;
-  font-family: 'Arial', sans-serif;
+.card h4 {
+  font-weight: bold;
+  color: #343a40;
+}
+
+.card p {
   color: #333;
-  margin-top: 20px; 
 }
 
-.main-content, .calc-section {
-    position: relative;
-    z-index: 1;
-  }
-  
+/* Hide & Show Helpers */
+.d-none {
+  display: none !important;
+}
 
+
+
+/* ================================================================== */
 /* Contact Page Enhancements */
 .contact-section {
     color: white;
