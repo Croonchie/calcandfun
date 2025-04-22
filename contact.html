@@ -1,49 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Calc and Fun</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- Add before </body> -->
-    <script src="js/contact.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Calc and Fun</title>
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  
+  <script src="js/contact.js"></script>
+  
 </head>
 <body id="contact">
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Calc and Fun</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="calc.html">Calc Zone</a></li>
-                    <li class="nav-item"><a class="nav-link" href="fun.html">Fun Zone</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/logo.png" alt="Logo" class="logo-img me-2">
+        Calc and Fun
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="calc.html">Calc Zone</a></li>
+          <li class="nav-item"><a class="nav-link" href="fun.html">Fun Zone</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+
+<!-- Video Section -->
+
+  <section class="vid-index">
+    <video autoplay muted loop playsinline>
+      <source src="assets/vid.index.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Info -->
+        <div class="col-md-6 mb-4 contact-info">
+          <h3>Contact Info</h3>
+          <h4>CONTACT COORDINATES</h4>
+          <p><strong>Phone:</strong> 1-888-701-0353</p>
+          <p><strong>Email:</strong> info@calcandfun.ca</p>
+
+          <p><strong>Address:</strong> 914-1276 Islington Ave, Etobicoke, ON M9A3J, Canada</p>
         </div>
-    </nav>
 
-    <!-- Page Content -->
-    <main class="container text-center mt-5">
-        <h2>Welcome to Contact US Page</h2>
-        <p>It's Under Construction 🚧</p>
-    </main>
+        <!-- Query Form -->
+        <div class="col-md-6">
+          <h4 class="text-danger text-center mb-3">Query?</h4>
+          <form class="contact-form">
+            <input type="text" class="form-control" placeholder="First Name" required>
+            <input type="text" class="form-control" placeholder="Last Name" required>
+            <input type="text" class="form-control" placeholder="Your Phone" required>
+            <input type="email" class="form-control" placeholder="Your Email" required>
+            <input type="text" class="form-control" placeholder="Subject">
+            <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success w-100 mt-3">Send</button>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Calc and Fun. All Rights Reserved.</p>
-    </footer>
+            </div>
+          </form>
+        </div>
+      </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- Map Placeholder -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="map-box p-0">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.7492790640624!2d-79.54779918450576!3d43.649795579121144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3d7c6b19b1f9%3A0xbb5ad5a871cb1c2b!2s914-1276%20Islington%20Ave%2C%20Etobicoke%2C%20ON%20M9A%203J%2C%20Canada!5e0!3m2!1sen!2sca!4v1712001119394!5m2!1sen!2sca" 
+              width="100%" 
+              height="350" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div> <!-- Close col-12 -->
+      </div> <!-- Close row -->
+  </section>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Calc and Fun. All Rights Reserved.</p>
+      
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
