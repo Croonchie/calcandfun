@@ -45,21 +45,59 @@
   </section>
 
     <!-- Page Content -->
-    <main class="container text-center mt-5">
+   <!-- Page Content -->
+<main class="container text-center mt-5">
 
-      <h2>Welcome to About Us Page</h2>
-      <p>It's Under Construction 🚧</p>
-        <h2 class="fw-bold">What is Calc & Fun?</h2>
-        <p class="lead">Calc & Fun is the ultimate platform where learning meets entertainment! Whether you're solving math problems using our educational calculators or enjoying fun mini-games to relax, we've got something for everyone.</p>
+  <h2>Welcome to About Us Page</h2>
+  <p>It's Under Construction 🚧</p>
 
-        <section class="feature-highlight text-center py-5">
-          <div class="container">
-      
-              <h2 class="fw-bold">Where Numbers Meet Fun!</h2>
-              <p class="lead">Experience the perfect blend of learning and entertainment. Calc and Fun brings together powerful calculators and exciting mini-games—all in one place!</p>
-          </div>
-      </section>
-    </main>
+  <div class="feature-box">
+    <!-- Side by side content -->
+    <section class="feature-item">
+      <h2 class="fw-bold">What is Calc & Fun?</h2>
+      <p class="lead">Calc & Fun is the ultimate platform where learning meets entertainment! Whether you're solving math problems using our educational calculators or enjoying fun mini-games to relax, we've got something for everyone.</p>
+    </section>
+    <section class="feature-item">
+      <h2 class="fw-bold">Where Numbers Meet Fun!</h2>
+      <p class="lead">Experience the perfect blend of learning and entertainment. Calc and Fun brings together powerful calculators and exciting mini-games—all in one place!</p>
+    </section>
+  </div>
+</main>
+
+    
+    <!-- Daily Fun Fact Section -->
+<section class="fact-section">
+  <h3>🌟 Daily Fun Fact</h3>
+  <p id="funFact">Loading your fun fact...</p>
+</section>
+
+<!-- Quote of the Day Section -->
+<section class="quote-section">
+  <h3>💬 Quote of the Day</h3>
+  <p id="quoteOfTheDay">Finding some inspiration...</p>
+</section>
+
+<script>
+  const funFacts = [
+    "Bananas are berries, but strawberries aren't.",
+    "Octopuses have three hearts.",
+    "A group of flamingos is called a 'flamboyance'.",
+    "Honey never spoils—archaeologists found 3000-year-old edible honey!",
+    "The Eiffel Tower can grow over 6 inches during hot days."
+  ];
+
+  const quotes = [
+    "Believe you can and you're halfway there. —Theodore Roosevelt",
+    "Your time is limited, don’t waste it living someone else’s life. —Steve Jobs",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts. —Winston Churchill",
+    "Start where you are. Use what you have. Do what you can. —Arthur Ashe",
+    "Do one thing every day that scares you. —Eleanor Roosevelt"
+  ];
+
+  const today = new Date().getDate();
+  document.getElementById('funFact').textContent = funFacts[today % funFacts.length];
+  document.getElementById('quoteOfTheDay').textContent = quotes[today % quotes.length];
+</script>
 
 
 
