@@ -15,8 +15,7 @@ Calc & Fun is a JavaScript-powered web application that combines **productivity 
 
 ---
 ##Youtube Demo
-
-
+[![Watch the video](https://img.youtube.com/vi/<mozx21j4dwY>/0.jpg)](https://www.youtube.com/watch?v=mozx21j4dwY)
 
 ## 🎯 Features
 
