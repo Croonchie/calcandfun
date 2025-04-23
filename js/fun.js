@@ -232,6 +232,32 @@ const quizData = {
     { q: "Which continent is the Sahara Desert located on?", options: ["Asia", "Africa", "Australia", "South America"], answer: "Africa" },
     { q: "What is H2O commonly known as?", options: ["Hydrogen", "Oxygen", "Water", "Salt"], answer: "Water" },
     { q: "What is the largest mammal?", options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"], answer: "Blue Whale" }
+  ],
+
+  2: [
+      { q: "The sun is a star.", options: ["True", "False"], answer: "True" },
+      { q: "Lightning never strikes the same place twice.", options: ["True", "False"], answer: "False" },
+      { q: "Water boils at 100°C.", options: ["True", "False"], answer: "True" },
+      { q: "Bats are blind.", options: ["True", "False"], answer: "False" },
+      { q: "Humans have 4 lungs.", options: ["True", "False"], answer: "False" },
+      { q: "Sound travels faster than light.", options: ["True", "False"], answer: "False" },
+      { q: "Goldfish only have a 3-second memory.", options: ["True", "False"], answer: "False" },
+      { q: "An octopus has three hearts.", options: ["True", "False"], answer: "True" },
+      { q: "There are 7 continents on Earth.", options: ["True", "False"], answer: "True" },
+      { q: "Bananas grow on trees.", options: ["True", "False"], answer: "False" }
+  ],
+
+  3: [
+    { q: "What is 12 × 8?", options: ["96", "88", "108", "86"], answer: "96" },
+    { q: "What is the square root of 144?", options: ["10", "11", "12", "13"], answer: "12" },
+    { q: "Solve: 15 - 9 + 4 =", options: ["10", "8", "6", "12"], answer: "10" },
+    { q: "What is 7²?", options: ["42", "49", "56", "63"], answer: "49" },
+    { q: "Which is greater: 3/4 or 2/3?", options: ["3/4", "2/3", "Equal", "Can't tell"], answer: "3/4" },
+    { q: "How many degrees in a right angle?", options: ["45", "90", "180", "360"], answer: "90" },
+    { q: "What is 10% of 200?", options: ["10", "20", "25", "30"], answer: "20" },
+    { q: "What is 5 cubed (5³)?", options: ["15", "25", "100", "125"], answer: "125" },
+    { q: "Which is a prime number?", options: ["9", "15", "17", "21"], answer: "17" },
+    { q: "What is the next number in the pattern: 2, 4, 8, 16, ?", options: ["20", "24", "30", "32"], answer: "32" }
   ]
 };
 
