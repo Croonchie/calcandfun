@@ -120,100 +120,63 @@ function restartButton() {
 /* ===== Memory Game Logic ===== */
 
 function initMemoryGame() {
-  const container = document.getElementById("Mermory");
+  const board = document.getElementById('memoryBoard');
+  const message = document.getElementById('memoryMessage');
+
+  // Clear board and message
+  board.innerHTML = '';
+  message.textContent = '';
+
   const symbols = ['🍎', '🚗', '🐶', '🎮', '🏀', '🎵'];
-  const gameSymbols = [...symbols, ...symbols]; // 12 cards total
-  shuffleArray(gameSymbols);
+  let cards = [...symbols, ...symbols];
+  cards.sort(() => 0.5 - Math.random());
 
-  const board = container.querySelector("#memoryBoard");
-  gameSymbols.forEach((symbol, index) => {
-    const card = document.createElement("button");
-    card.className = "btn btn-outline-primary memory-card";
-    card.setAttribute("data-symbol", symbol);
-    card.setAttribute("data-index", index);
-    card.style.height = "60px";
-    card.textContent = "";
-    card.addEventListener("click", () => flipCard(card));
-    board.appendChild(card);
-  });
+  let flipped = [];
+  let matchedPairs = 0;
 
-  window.memoryGame = {
-    flipped: [],
-    locked: false,
-    matchedCount: 0,
-    totalPairs: symbols.length
-  };
-}
+  cards.forEach(symbol => {
+    const card = document.createElement('button');
+    card.className = 'btn btn-outline-primary memory-card';
+    card.style.height = '60px';
+    card.style.width = '60px';
+    card.style.fontSize = '28px';
+    card.style.borderRadius = '10px';
+    card.dataset.symbol = symbol;
+    card.textContent = ''; // initially hidden
 
-function flipCard(card) {
-  const game = window.memoryGame;
-  if (game.locked || card.classList.contains("matched") || card.textContent !== "") return;
+    card.addEventListener('click', () => {
+      if (
+        !card.classList.contains('matched') &&
+        flipped.length < 2 &&
+        !flipped.includes(card)
+      ) {
+        card.textContent = card.dataset.symbol; // reveal
+        flipped.push(card);
 
-  card.textContent = card.getAttribute("data-symbol");
-  game.flipped.push(card);
-
-  if (game.flipped.length === 2) {
-    game.locked = true;
-    const [first, second] = game.flipped;
-    if (first.getAttribute("data-symbol") === second.getAttribute("data-symbol")) {
-      first.classList.add("matched", "btn-success");
-      second.classList.add("matched", "btn-success");
-      game.matchedCount++;
-      if (game.matchedCount === game.totalPairs) {
-        document.getElementById("memoryMessage").textContent = "🎉 You matched all the pairs!";
+        if (flipped.length === 2) {
+          setTimeout(() => {
+            if (flipped[0].dataset.symbol === flipped[1].dataset.symbol) {
+              flipped.forEach(btn => {
+                btn.classList.add('matched', 'btn-success');
+                btn.disabled = true;
+              });
+              matchedPairs++;
+              if (matchedPairs === symbols.length) {
+                message.textContent = '🎉 All pairs matched!';
+              }
+            } else {
+              flipped.forEach(btn => {
+                btn.textContent = ''; // hide again
+              });
+            }
+            flipped = [];
+          }, 800);
+        }
       }
-      resetFlip();
-    } else {
-      setTimeout(() => {
-        first.textContent = "";
-        second.textContent = "";
-        resetFlip();
-      }, 800);
-    }
-  }
-}
+    });
 
-function resetFlip() {
-  window.memoryGame.flipped = [];
-  window.memoryGame.locked = false;
-}
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-
-  function initMemoryGame() {
-  const board = document.getElementById("memoryBoard");
-  const message = document.getElementById("memoryMessage");
-
-  board.innerHTML = ""; // Clear all existing cards
-  message.textContent = ""; // Clear any win messages
-
-  const symbols = ['🍎', '🚗', '🐶', '🎮', '🏀', '🎵'];
-  const gameSymbols = [...symbols, ...symbols];
-  shuffleArray(gameSymbols);
-
-  gameSymbols.forEach((symbol, index) => {
-    const card = document.createElement("button");
-    card.className = "btn btn-outline-primary memory-card";
-    card.setAttribute("data-symbol", symbol);
-    card.setAttribute("data-index", index);
-    card.style.height = "60px";
-    card.textContent = "";
-    card.addEventListener("click", () => flipCard(card));
     board.appendChild(card);
   });
-
-  window.memoryGame = {
-    flipped: [],
-    locked: false,
-    matchedCount: 0,
-    totalPairs: symbols.length
-  };
-}
-
 }
 
 /* ===== Quiz Logic ===== */
