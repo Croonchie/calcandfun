@@ -47,38 +47,11 @@ function showGame(gameId) {
   if (gameId === 'Tictactoe') resetGame();
 }
 
-// Show Quiz
-function showQuiz(quizNum) {
-  hideAllSections();
-  const quizId = `quiz${quizNum}`;
-  if (sections[quizId]) {
-    sections[quizId].classList.remove('d-none');
-  }
-  quizOptions.classList.remove('d-none'); // Keep quiz options visible
-}
 
 // Event listeners
 gameBtn.addEventListener('click', toggleGameOptions);
 quizBtn.addEventListener('click', toggleQuizOptions);
 
-// Prevent closing when clicking inside the game or quiz
-document.addEventListener('click', (e) => {
-  const targets = ['gameBtn', 'quizBtn', 'gameOptions', 'quizOptions'];
-  if (
-    !targets.some(id => e.target.closest(`#${id}`)) &&
-    !e.target.closest('.square') &&
-    !e.target.closest('#Tictactoe') &&
-    !e.target.closest('#Mermory') &&
-    !e.target.closest('#Puzzle') &&
-    !e.target.closest('#quiz1') &&
-    !e.target.closest('#quiz2') &&
-    !e.target.closest('#quiz3')
-  ) {
-    hideAllSections();
-    gameOptions.classList.add('d-none');
-    quizOptions.classList.add('d-none');
-  }
-});
 
 /* ===== Tic Tac Toe Logic ===== */
 const squares = document.querySelectorAll('.square');
@@ -142,4 +115,187 @@ function checkTie() {
 function restartButton() {
   resetGame();
 }
+
+
+/* ===== Memory Game Logic ===== */
+
+function initMemoryGame() {
+  const container = document.getElementById("Mermory");
+  const symbols = ['🍎', '🚗', '🐶', '🎮', '🏀', '🎵'];
+  const gameSymbols = [...symbols, ...symbols]; // 12 cards total
+  shuffleArray(gameSymbols);
+
+  const board = container.querySelector("#memoryBoard");
+  gameSymbols.forEach((symbol, index) => {
+    const card = document.createElement("button");
+    card.className = "btn btn-outline-primary memory-card";
+    card.setAttribute("data-symbol", symbol);
+    card.setAttribute("data-index", index);
+    card.style.height = "60px";
+    card.textContent = "";
+    card.addEventListener("click", () => flipCard(card));
+    board.appendChild(card);
+  });
+
+  window.memoryGame = {
+    flipped: [],
+    locked: false,
+    matchedCount: 0,
+    totalPairs: symbols.length
+  };
+}
+
+function flipCard(card) {
+  const game = window.memoryGame;
+  if (game.locked || card.classList.contains("matched") || card.textContent !== "") return;
+
+  card.textContent = card.getAttribute("data-symbol");
+  game.flipped.push(card);
+
+  if (game.flipped.length === 2) {
+    game.locked = true;
+    const [first, second] = game.flipped;
+    if (first.getAttribute("data-symbol") === second.getAttribute("data-symbol")) {
+      first.classList.add("matched", "btn-success");
+      second.classList.add("matched", "btn-success");
+      game.matchedCount++;
+      if (game.matchedCount === game.totalPairs) {
+        document.getElementById("memoryMessage").textContent = "🎉 You matched all the pairs!";
+      }
+      resetFlip();
+    } else {
+      setTimeout(() => {
+        first.textContent = "";
+        second.textContent = "";
+        resetFlip();
+      }, 800);
+    }
+  }
+}
+
+function resetFlip() {
+  window.memoryGame.flipped = [];
+  window.memoryGame.locked = false;
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  function initMemoryGame() {
+  const board = document.getElementById("memoryBoard");
+  const message = document.getElementById("memoryMessage");
+
+  board.innerHTML = ""; // Clear all existing cards
+  message.textContent = ""; // Clear any win messages
+
+  const symbols = ['🍎', '🚗', '🐶', '🎮', '🏀', '🎵'];
+  const gameSymbols = [...symbols, ...symbols];
+  shuffleArray(gameSymbols);
+
+  gameSymbols.forEach((symbol, index) => {
+    const card = document.createElement("button");
+    card.className = "btn btn-outline-primary memory-card";
+    card.setAttribute("data-symbol", symbol);
+    card.setAttribute("data-index", index);
+    card.style.height = "60px";
+    card.textContent = "";
+    card.addEventListener("click", () => flipCard(card));
+    board.appendChild(card);
+  });
+
+  window.memoryGame = {
+    flipped: [],
+    locked: false,
+    matchedCount: 0,
+    totalPairs: symbols.length
+  };
+}
+
+}
+
+/* ===== Quiz Logic ===== */
+
+
+// Quiz logic
+const quizData = {
+  1: [
+    { q: "Capital of France?", options: ["Paris", "Berlin", "Rome", "London"], answer: "Paris" },
+    { q: "Largest ocean?", options: ["Atlantic", "Indian", "Arctic", "Pacific"], answer: "Pacific" },
+    { q: "Fastest land animal?", options: ["Cheetah", "Tiger", "Horse", "Leopard"], answer: "Cheetah" },
+    { q: "What planet is known as the Red Planet?", options: ["Mars", "Venus", "Jupiter", "Saturn"], answer: "Mars" },
+    { q: "What gas do plants absorb from the atmosphere?", options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], answer: "Carbon Dioxide" },
+    { q: "Who painted the Mona Lisa?", options: ["Leonardo da Vinci", "Van Gogh", "Pablo Picasso", "Michelangelo"], answer: "Leonardo da Vinci" },
+    { q: "Which language is the most spoken worldwide?", options: ["English", "Spanish", "Mandarin", "Hindi"], answer: "Mandarin" },
+    { q: "Which continent is the Sahara Desert located on?", options: ["Asia", "Africa", "Australia", "South America"], answer: "Africa" },
+    { q: "What is H2O commonly known as?", options: ["Hydrogen", "Oxygen", "Water", "Salt"], answer: "Water" },
+    { q: "What is the largest mammal?", options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"], answer: "Blue Whale" }
+  ]
+};
+
+function showQuiz(category) {
+  document.querySelectorAll("#quiz1, #quiz2, #quiz3").forEach(el => el.classList.add("d-none"));
+  document.querySelector(`#quiz${category}`).classList.remove("d-none");
+  startQuiz(category);
+}
+
+function startQuiz(category) {
+  const quiz = [...quizData[category]].sort(() => 0.5 - Math.random()).slice(0, 5);
+  let score = 0;
+  let current = 0;
+
+  const quizId = `quiz${category}`;
+  document.getElementById(`${quizId}Score`).textContent = "";
+  document.getElementById(`${quizId}Container`).innerHTML = "";
+  document.querySelector(`#${quizId} button`)?.classList.add("d-none");
+
+  function renderQuestion() {
+    const container = document.getElementById(`${quizId}Container`);
+    const q = quiz[current];
+    const optionsHTML = q.options.map(opt => `<button class='btn btn-outline-dark m-2 w-100' data-answer='${opt}'>${opt}</button>`).join("");
+
+    container.innerHTML = `
+      <div class="card p-3 bg-light">
+        <h5>Q${current + 1}: ${q.q}</h5>
+        <div class="my-3" id="options">${optionsHTML}</div>
+        <p id='feedback' class='fw-bold'></p>
+      </div>`;
+
+    document.querySelectorAll("#options button").forEach(btn => {
+      btn.onclick = () => checkAnswer(btn.getAttribute("data-answer"));
+    });
+  }
+
+  function checkAnswer(selected) {
+    const correct = quiz[current].answer;
+    const feedback = document.getElementById("feedback");
+
+    if (selected === correct) {
+      score++;
+      feedback.textContent = "Correct!";
+      feedback.className = "fw-bold text-success";
+    } else {
+      feedback.textContent = `Incorrect. Correct: ${correct}`;
+      feedback.className = "fw-bold text-danger";
+    }
+
+    current++;
+    setTimeout(() => {
+      if (current < quiz.length) {
+        renderQuestion();
+      } else {
+        document.getElementById(`${quizId}Container`).innerHTML = "";
+        document.getElementById(`${quizId}Score`).textContent = `Final Score: ${score}/${quiz.length}`;
+        document.querySelector(`#${quizId} button`)?.classList.remove("d-none");
+      }
+    }, 1000);
+  }
+
+  renderQuestion();
+}
+
+
+
 
