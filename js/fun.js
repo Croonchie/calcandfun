@@ -285,7 +285,7 @@ function startQuiz(category) {
   renderQuestion();
 }
 
-//Puzzle logic
+// Puzzle logic
 const grid = document.querySelectorAll('.cell');
 let board = Array(16).fill(null);
 let score = 0;
@@ -295,6 +295,9 @@ document.addEventListener('keydown', handleKeyPress);
 initializeGame();
 
 function initializeGame() {
+    board = Array(16).fill(null); // Reset the board to an empty state
+    score = 0; // Reset the score
+    document.getElementById('score').textContent = `Score: ${score}`; // Update the score on the screen
     addRandomTile();
     addRandomTile();
     updateGrid();
@@ -437,6 +440,10 @@ function canMove() {
     return false;
 }
 
-
+// Restart the game (reset grid and score)
+function restartGame() {
+    isGameOver = false;
+    initializeGame(); // Reinitialize the game with a new board and score
+}
 
 
