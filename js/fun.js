@@ -285,6 +285,158 @@ function startQuiz(category) {
   renderQuestion();
 }
 
+//Puzzle logic
+const grid = document.querySelectorAll('.cell');
+let board = Array(16).fill(null);
+let score = 0;
+let isGameOver = false;
+
+document.addEventListener('keydown', handleKeyPress);
+initializeGame();
+
+function initializeGame() {
+    addRandomTile();
+    addRandomTile();
+    updateGrid();
+}
+
+function addRandomTile() {
+    if (board.every(cell => cell !== null)) return;
+
+    let emptyCells = board.map((value, index) => value === null ? index : -1).filter(index => index !== -1);
+    let randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+    board[randomIndex] = Math.random() > 0.1 ? 2 : 4;
+}
+
+function updateGrid() {
+    board.forEach((value, index) => {
+        grid[index].textContent = value ? value : '';
+        grid[index].className = 'cell';
+        if (value) grid[index].classList.add(`cell-${value}`);
+    });
+    document.getElementById('score').textContent = `Score: ${score}`;
+}
+
+function handleKeyPress(event) {
+    if (isGameOver) return;
+
+    let moved = false;
+    if (event.key === 'ArrowUp') moved = moveUp();
+    else if (event.key === 'ArrowDown') moved = moveDown();
+    else if (event.key === 'ArrowLeft') moved = moveLeft();
+    else if (event.key === 'ArrowRight') moved = moveRight();
+
+    if (moved) {
+        addRandomTile();
+        updateGrid();
+        checkGameOver();
+    }
+}
+
+function moveUp() {
+    let moved = false;
+    for (let col = 0; col < 4; col++) {
+        let column = getColumn(col);
+        let newColumn = slideAndMerge(column);
+        if (!arraysEqual(column, newColumn)) {
+            moved = true;
+            setColumn(col, newColumn);
+        }
+    }
+    return moved;
+}
+
+function moveDown() {
+    let moved = false;
+    for (let col = 0; col < 4; col++) {
+        let column = getColumn(col);
+        let newColumn = slideAndMerge(column.reverse()).reverse();
+        if (!arraysEqual(column, newColumn)) {
+            moved = true;
+            setColumn(col, newColumn);
+        }
+    }
+    return moved;
+}
+
+function moveLeft() {
+    let moved = false;
+    for (let row = 0; row < 4; row++) {
+        let rowData = getRow(row);
+        let newRow = slideAndMerge(rowData);
+        if (!arraysEqual(rowData, newRow)) {
+            moved = true;
+            setRow(row, newRow);
+        }
+    }
+    return moved;
+}
+
+function moveRight() {
+    let moved = false;
+    for (let row = 0; row < 4; row++) {
+        let rowData = getRow(row);
+        let newRow = slideAndMerge(rowData.reverse()).reverse();
+        if (!arraysEqual(rowData, newRow)) {
+            moved = true;
+            setRow(row, newRow);
+        }
+    }
+    return moved;
+}
+
+function slideAndMerge(arr) {
+    let newArr = arr.filter(val => val !== null);
+    for (let i = 0; i < newArr.length - 1; i++) {
+        if (newArr[i] === newArr[i + 1]) {
+            newArr[i] *= 2;
+            score += newArr[i];
+            newArr.splice(i + 1, 1);
+        }
+    }
+    return [...newArr, ...Array(4 - newArr.length).fill(null)];
+}
+
+function getRow(rowIndex) {
+    return board.slice(rowIndex * 4, rowIndex * 4 + 4);
+}
+
+function setRow(rowIndex, newRow) {
+    board.splice(rowIndex * 4, 4, ...newRow);
+}
+
+function getColumn(colIndex) {
+    return [board[colIndex], board[colIndex + 4], board[colIndex + 8], board[colIndex + 12]];
+}
+
+function setColumn(colIndex, newCol) {
+    for (let i = 0; i < 4; i++) {
+        board[colIndex + i * 4] = newCol[i];
+    }
+}
+
+function arraysEqual(arr1, arr2) {
+    return arr1.every((val, index) => val === arr2[index]);
+}
+
+function checkGameOver() {
+    if (board.every(cell => cell !== null) && !canMove()) {
+        isGameOver = true;
+        setTimeout(() => alert('Game Over!'), 100);
+    }
+}
+
+function canMove() {
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            if (board[i * 4 + j] === null) return true;
+            if (i < 3 && board[i * 4 + j] === board[(i + 1) * 4 + j]) return true;
+            if (j < 3 && board[i * 4 + j] === board[i * 4 + j + 1]) return true;
+        }
+    }
+    return false;
+}
+
 
 
 
